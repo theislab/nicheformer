@@ -42,7 +42,7 @@ If you found a bug, please use the [issue tracker][issue-tracker].
 
 ## Citation
 
-ToDo add
+Schaar, A.C., Tejada-Lapuerta, A., et al. Nicheformer: a foundation model for single-cell and spatial omics. bioRxiv (2024)
 
 [issue-tracker]: https://github.com/theislab/nicheformer/issues
 [changelog]: https://nicheformer.readthedocs.io/latest/changelog.html
