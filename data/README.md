@@ -1,10 +1,13 @@
 # nicheformer
 
-This is the official repository for **Nicheformer: Nicheformer: a foundation model for single-cell and spatial omics**
+[![Tests][badge-tests]][link-tests]
+[![Documentation][badge-docs]][link-docs]
 
-[![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)]() &nbsp;
-[![Documentation](https://img.shields.io/badge/docs-available-brightgreen)](https://nicheformer.readthedocs.io/en/latest/) &nbsp;
-![Webapp](https://img.shields.io/website?url=https%3A%2F%2Fscgpthub.org&up_color=chartreuse%20&logo=gotomeeting&logoColor=%23FFB3FF&label=WebApp&labelColor=%2300CBFF) &nbsp;
+[badge-tests]: https://img.shields.io/github/actions/workflow/status/theislab/nicheformer/test.yaml?branch=main
+[link-tests]: https://github.com/theislab/nicheformer/actions/workflows/test.yml
+[badge-docs]: https://img.shields.io/readthedocs/nicheformer
+
+Nicheformer: a foundation model for single-cell and spatial omics
 
 ## Getting started
 
@@ -44,8 +47,9 @@ If you found a bug, please use the [issue tracker][issue-tracker].
 
 ## Citation
 
-ToDo add
+> t.b.a
 
+[scverse-discourse]: https://discourse.scverse.org/
 [issue-tracker]: https://github.com/theislab/nicheformer/issues
 [changelog]: https://nicheformer.readthedocs.io/latest/changelog.html
 [link-docs]: https://nicheformer.readthedocs.io
