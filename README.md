@@ -1,6 +1,6 @@
 # nicheformer
 
-This is the official repository for **Nicheformer: Nicheformer: a foundation model for single-cell and spatial omics**
+This is the official repository for **Nicheformer: a foundation model for single-cell and spatial omics**
 
 [![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)]() &nbsp;
 [![Documentation](https://img.shields.io/badge/docs-available-brightgreen)](https://nicheformer.readthedocs.io/en/latest/) &nbsp;
