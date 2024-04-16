@@ -1,16 +1,12 @@
 import torch
 import torch.nn as nn
 import torch.nn.init as init
-from torch.distributed import get_rank
 import pytorch_lightning as pl
 from typing import List
 from torch import optim
-from ._mlp_net import MLP
-from ._tokenizer import complete_masking
-from ._contrastive_loss import gather_features, contrastive_sampling, contrastive_loss
+from ._utils import complete_masking
 import numpy as np
 import math
-import gc
 
 MASK_TOKEN = 0
 CLS_TOKEN = 2

@@ -1,13 +1,9 @@
 from models._nicheformer import Nicheformer
-from utils._dataset import TransformerDataset, ParquetDataset
-from dataloader.datamodules import MerlinDataModule, MerlinDataModuleDistributed
+from data.datamodules import MerlinDataModuleDistributed
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
-from torch.utils.data import DataLoader
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
-from torch.distributed import get_global_rank, get_world_size, get_rank
-import wandb
-import torch
+
     
 def manual_train_fm(config=None):
     
@@ -49,7 +45,6 @@ def manual_train_fm(config=None):
                         accelerator='gpu',
                         max_epochs=1000,
                         devices=-1,
-                        #num_nodes=3,
                         log_every_n_steps=100,
                         check_val_every_n_epoch=50,
                         strategy="ddp_find_unused_parameters_true",

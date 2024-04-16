@@ -1,15 +1,12 @@
 from models._nicheformer import Nicheformer
 from models._fine_tune_model import FineTuningModel
-from utils._dataset import TransformerDataset, ParquetDataset
-from dataloader.datamodules import MerlinDataModule, MerlinDataModuleDistributed
+from data.datamodules import MerlinDataModuleDistributed
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
-from torch.utils.data import DataLoader
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
 import torch
 import numpy as np
 from tqdm import tqdm
-import wandb
 import os
     
 def fine_tune_predictions(config=None):

@@ -4,10 +4,9 @@ import torch.nn.init as init
 import pytorch_lightning as pl
 from typing import List
 from torch import optim
-from ._tokenizer import complete_masking
+from ._utils import complete_masking
 from ._nicheformer import CosineWarmupScheduler
 from pyro.distributions import DirichletMultinomial
-from sklearn.metrics import f1_score, recall_score, precision_score, r2_score
 import gc
 import numpy as np
 
