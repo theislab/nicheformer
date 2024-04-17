@@ -1,7 +1,7 @@
 from importlib.metadata import version
 
-from . import pl, pp, tl
+from . import data, models
 
-__all__ = ["pl", "pp", "tl"]
+__all__ = ["data", "models"]
 
 __version__ = version("nicheformer")
