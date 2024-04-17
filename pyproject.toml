@@ -10,10 +10,12 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Theislab"},
+    {name = "Anna Schaar"},
+    {name = "Alejandro Tejada-Lapuerta"},
 ]
 maintainers = [
-    {name = "Theislab", email = "yourname@example.com"},
+    {name = "Anna Schaar", email = "anna.schaar@tum.de"},
+    {name = "Alejandro Tejada-Lapuerta", email = "alejandro.tejada@helmholtz-munich.de"},
 ]
 urls.Documentation = "https://nicheformer.readthedocs.io/"
 urls.Source = "https://github.com/theislab/nicheformer"
