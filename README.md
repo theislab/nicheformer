@@ -5,11 +5,6 @@ This is the official repository for **Nicheformer: a foundation model for single
 [![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)]() &nbsp;
 [![Documentation](https://img.shields.io/badge/docs-available-brightgreen)](https://nicheformer.readthedocs.io/en/latest/) &nbsp;
 
-## Getting started
-
-Please refer to the [documentation][link-docs]. In particular, the
-
--   [API documentation][link-api].
 
 ## Installation
 
@@ -37,8 +32,7 @@ See the [changelog][changelog].
 
 ## Contact
 
-For questions and help requests, you can reach out in the [scverse discourse][scverse-discourse].
-If you found a bug, please use the [issue tracker][issue-tracker].
+For questions and help requests, you can reach out (preferably) on GitHub or email to the corresponding author. 
 
 ## Citation
 
