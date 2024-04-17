@@ -31,9 +31,12 @@ pip install nicheformer
 Install the latest development version:
 
 ```bash
-pip install git+https://github.com/theislab/nicheformer.git@main
+git clone https://github.com/theislab/nicheformer.git
+cd nicheformer
+pip install -e .
 ```
-
+## Nicheformer data
+We additionally provide a separate data repository that can be used to download and preprocess all publically available datasets used in the Nicheformer pretraining and for downstream tasks. Examplary scripts for accessing the datasets from the SpatialCorpus-110M are avaiable at https://github.com/theislab/nicheformer-data.
 
 ## Contact
 
