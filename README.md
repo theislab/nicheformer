@@ -3,8 +3,16 @@
 This is the official repository for **Nicheformer: a foundation model for single-cell and spatial omics**
 
 [![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)]() &nbsp;
-[![Documentation](https://img.shields.io/badge/docs-available-brightgreen)](https://nicheformer.readthedocs.io/en/latest/) &nbsp;
 
+A rendered Jupyter book version of this repository will be available soon.
+
+## Citation
+
+If you use our tool or build upon our concepts in your own work, please cite it as
+
+```
+Schaar, A.C., Tejada-Lapuerta, A., et al. Nicheformer: a foundation model for single-cell and spatial omics. bioRxiv (2024)
+```
 
 ## Installation
 
@@ -26,17 +34,12 @@ Install the latest development version:
 pip install git+https://github.com/theislab/nicheformer.git@main
 ```
 
-## Release notes
-
-See the [changelog][changelog].
 
 ## Contact
 
 For questions and help requests, you can reach out (preferably) on GitHub or email to the corresponding author. 
 
-## Citation
 
-Schaar, A.C., Tejada-Lapuerta, A., et al. Nicheformer: a foundation model for single-cell and spatial omics. bioRxiv (2024)
 
 [issue-tracker]: https://github.com/theislab/nicheformer/issues
 [changelog]: https://nicheformer.readthedocs.io/latest/changelog.html
