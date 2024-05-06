@@ -36,7 +36,10 @@ cd nicheformer
 pip install -e .
 ```
 ## Nicheformer data
-We additionally provide a separate data repository that can be used to download and preprocess all publically available datasets used in the Nicheformer pretraining and for downstream tasks. Examplary scripts for accessing the datasets from the SpatialCorpus-110M are avaiable at https://github.com/theislab/nicheformer-data.
+We provide examplary data loading scripts in the data subdirectory that can be used as templates for loading the spatial omics datasets and datasets retreived from GEO. 
+
+## Pretraining weights
+We provide the Nicheformer pretraining weights on Mendeley data, they can be downloaded from [here](https://data.mendeley.com/preview/87gm9hrgm8?a=d95a6dde-e054-4245-a7eb-0522d6ea7dff). 
 
 ## Contact
 
