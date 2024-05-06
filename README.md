@@ -2,7 +2,7 @@
 
 This is the official repository for **Nicheformer: a foundation model for single-cell and spatial omics**
 
-[![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)]() &nbsp;
+[![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)](https://www.biorxiv.org/content/10.1101/2024.04.15.589472v1) &nbsp;
 
 A rendered Jupyter book version of this repository will be available soon.
 
@@ -11,7 +11,7 @@ A rendered Jupyter book version of this repository will be available soon.
 If you use our tool or build upon our concepts in your own work, please cite it as
 
 ```
-Schaar, A.C., Tejada-Lapuerta, A., et al. Nicheformer: a foundation model for single-cell and spatial omics. bioRxiv (2024)
+Schaar, A.C., Tejada-Lapuerta, A., et al. Nicheformer: a foundation model for single-cell and spatial omics. bioRxiv (2024). doi: https://doi.org/10.1101/2024.04.15.589472
 ```
 
 ## Installation
