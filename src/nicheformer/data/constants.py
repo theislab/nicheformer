@@ -41,7 +41,7 @@ class OrganismOntologyTermId(Enum):
     """Mouse and human"""
 
     MOUSE = "NCBITaxon:10090"
-    HUMAN = "PATO:0000384"
+    HUMAN = "NCBITaxon:9606"
 
 
 class TissueOntologyTermId(Enum):
@@ -54,6 +54,11 @@ class TissueOntologyTermId(Enum):
     LUNG = "UBERON:0002048"
     HEART = "UBERON:0000948"
     INTESTINE = "UBERON:0000160"
+    KIDNEY = "UBERON:0002113"
+    COLON = "UBERON:0001155"
+    SKIN = "UBERON:0002097"
+    PANCREAS = "UBERON:0001264"
+    BREAST = "UBERON:0000310"
 
 
 class GeneExpressionOmnibus:
@@ -93,7 +98,10 @@ class ObsConstants:
     LIBRARY_KEY = "library_key"
     NICHE = "niche"
     REGION = "region"
-
+    SPLIT = "nicheformer_split"
+    SPATIAL_X = "x"
+    SPATIAL_Y = "y"
+    DATASET = "dataset"
 
 class UnsConstants:
     """Constants associated with uns in AnnData objects. These should primarily be used for loading scripts."""

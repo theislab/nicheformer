@@ -4,12 +4,32 @@ import tarfile
 import h5py
 from tqdm import tqdm
 import argparse
+import zipfile
 
 def format_files(members, file_format):
     for tarinfo in members:
         if os.path.splitext(tarinfo.name.removesuffix(".gz"))[1] == "." + file_format:
             yield tarinfo
 
+def download_zip(
+    url,
+    save_path, 
+    fn, 
+):
+    response = requests.get(url, stream=True)
+    response.raise_for_status()  # Check for any errors in the request
+
+    zip_fn = f"{save_path}/{fn}.zip"
+
+    # Open a local file for writing in binary mode.
+    with open(zip_fn, "wb") as file:
+        for chunk in tqdm(response.iter_content(chunk_size=8192)):
+            if chunk:  # Filter out keep-alive new chunks.
+                file.write(chunk)
+
+    print(f"Downloaded, saved to {zip_fn}")
+    with zipfile.ZipFile(zip_fn,"r") as zip_ref:
+        zip_ref.extractall(f"{save_path}/{fn}")
 
 def download_tar(
     url,
