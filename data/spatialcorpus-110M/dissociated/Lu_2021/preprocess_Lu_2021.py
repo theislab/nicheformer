@@ -6,7 +6,7 @@ import scanpy as sc
 from tqdm import tqdm
 
 from nicheformer.data.constants import DefaultPaths, ObsConstants, UnsConstants, VarConstants, AssayOntologyTermId, SexOntologyTermId, OrganismOntologyTermId, TissueOntologyTermId, SuspensionTypeId
-from nicheformer.data.tl import qc_filter
+from nicheformer.data.tools import qc_filter
 from nicheformer.data.validate import validate
 
 if len(sys.argv)==1:

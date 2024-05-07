@@ -37,6 +37,13 @@ class SexOntologyTermId(Enum):
     UNKNOWN = "unknown"
 
 
+class OrganismOntologyTermId(Enum):
+    """Mouse and human"""
+
+    MOUSE = "NCBITaxon:10090"
+    HUMAN = "PATO:0000384"
+
+
 class TissueOntologyTermId(Enum):
     """There are many in, here just collecting 7"""
 

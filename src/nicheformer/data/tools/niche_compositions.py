@@ -1,5 +1,5 @@
 from anndata import AnnData
-from nicheformer_data.constants import ObsConstants, ObsmConstants, UnsConstants
+from nicheformer.data.constants import ObsConstants, ObsmConstants, UnsConstants
 from pandas import get_dummies
 from scipy.sparse import csr_matrix
 from squidpy.gr import spatial_neighbors

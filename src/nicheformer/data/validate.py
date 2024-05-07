@@ -9,7 +9,7 @@ from cellxgene_schema.validate import Validator as CellxgeneValidator
 from cellxgene_schema.validate import logger
 from cellxgene_schema.write_labels import AnnDataLabelAppender as CellxgeneAnnDataLabelAppender
 
-from nicheformer_data.constants import AssayOntologyTermId, SexOntologyTermId, SuspensionTypeId, TissueOntologyTermId
+from nicheformer.data.constants import AssayOntologyTermId, SexOntologyTermId, SuspensionTypeId, TissueOntologyTermId
 
 METADATA_REMOVE = [
     "cell_type_ontology_term_id",
