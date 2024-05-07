@@ -5,9 +5,9 @@ import pandas as pd
 import scanpy as sc
 from tqdm import tqdm
 
-from nicheformer_data.constants import DefaultPaths, ObsConstants, UnsConstants, VarConstants
-from nicheformer_data.tl import qc_filter
-from nicheformer_data.validate import validate
+from nicheformer.data.constants import DefaultPaths, ObsConstants, UnsConstants, VarConstants, AssayOntologyTermId, SexOntologyTermId, OrganismOntologyTermId, TissueOntologyTermId, SuspensionTypeId
+from nicheformer.data.tl import qc_filter
+from nicheformer.data.validate import validate
 
 if len(sys.argv)==1:
     path = DefaultPaths.DISSOCIATED
@@ -25,12 +25,12 @@ geo_id = 'GSE172127'
 doi = "10.1038/s41421-021-00266-1"
 
 ## manual entries that are equal across the dataset
-assay = "EFO:0009899"
-sex = "PATO:0000383"
-organism = "NCBITaxon:10090"
+assay = str(AssayOntologyTermId.TENX_3V2.value)
+sex = str(SexOntologyTermId.FEMALE.value)
+organism = str(OrganismOntologyTermId.MOUSE.value)
 organism_validator = "mouse"
-tissue = "UBERON:0002107"
-suspension_type = "cell"
+tissue = str(TissueOntologyTermId.LIVER.value)
+suspension_type = str(SuspensionTypeId.SMART_SEQ_CELL.value)
 tissue_type = "tissue" # or alternatively "organoid"
 condition_id = "wild type"
 
