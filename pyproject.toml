@@ -23,7 +23,6 @@ urls.Home-page = "https://github.com/theislab/nicheformer"
 dependencies = [
     "anndata",
     "session-info",
-    "cellxgene-schema==3.1.3",
     "squidpy",
     "pyensembl==2.3.13",
     "torch>=2.5.1",
