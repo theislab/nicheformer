@@ -58,35 +58,7 @@ def manual_train_fm(config=None):
     path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/cellxgene_census_tokenized'
     key_organ = 'cell_type'
     splits=True
-    
-    if config['organ'] == 'brain':
-        #path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/spatial_brain_tokens/'
-        path_organ = '/lustre/groups/ml01/projects/spatial_transformer/allen_tokens_just_spatial_bug_free'
-        key_organ = 'X_niche'
-    if config['organ'] == 'liver':
-        path_organ = '/lustre/groups/ml01/projects/spatial_transformer/human_liver_tokens'
-        key_organ = 'X_niche'
-    if config['organ'] == 'healthy_liver':
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/data/nicheformer_downstream/cosmx_healthy_liver'
-        key_organ = ['assay', 'specie', 'modality', 'niche', 'X', 'X_niche_0', 'X_niche_1', 'X_niche_2', 'X_niche_3', 'X_niche_4']
-        splits=True 
-    if config['organ'] == 'mouse':
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/cellxgene_census_mouse_tokenized/'
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/data/cellxgene_census_mouse_tokenized/'
-        key_organ = 'specie'
-        splits=False
-    if config['organ'] == 'mouse_brain':
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/cellxgene_census_mouse_tokenized_just_brain/'
-        key_organ = 'cell_type'
-        splits=False
-    if config['organ'] == 'human_brain':
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/cellxgene_census_tokenized_just_brain'
-        key_organ = 'cell_type'
-        splits=False
-    if config['organ'] == 'entire_mouse':
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/data/dissociated_spatial_mouse_tokens'
-        key_organ = ['specie', 'technology']
-        splits=True   
+  
     if config['organ'] == 'everything':
         path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/data/nicheformer_tokens'
         key_organ = ['X', 'specie', 'assay', 'modality']

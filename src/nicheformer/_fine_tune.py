@@ -84,11 +84,7 @@ def fine_tune_predictions(config=None):
         splits=True 
     if config['organ'] == 'entire_mouse':
         path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/data/dissociated_spatial_mouse_tokens_predictions'
-        splits=True   
-    if config['organ'] == 'brain_not_scaled':
-        path_organ = '/lustre/groups/ml01/projects/2023_nicheformer/data/nicheformer_downstream/merfish_brain_noscaled'
-        label_key = ['assay', 'specie', 'modality',  'author_cell_type', 'niche', 'region', 'X', 'density_0', 'density_1', 'density_2', 'density_3', 'density_4']
-        splits=True   
+        splits=True    
         
     
     print(f"Using path {path_organ}")

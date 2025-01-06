@@ -259,48 +259,45 @@ class FineTuningModel(pl.LightningModule):
         return loss
     
     def getting_prediction(self, batch, batch_idx, transformer_output=False,*args, **kwargs):
-        
-        """
-            We get simply the predictions, which are the own logits 
-        """
-        
+        """We get simply the predictions, which are the own logits"""
+
         batch = complete_masking(batch, 0.0, self.backbone.hparams.n_tokens+5)
         masked_indices = batch['masked_indices'].to(self.backbone.device)
         attention_mask = batch['attention_mask'].to(self.backbone.device)
 
         predictions = self.forward(masked_indices, attention_mask)
         cls_prediction = predictions['cls_prediction']
-        
+
         if transformer_output:
             return predictions['representation']
 
         if self.task == 'classification':
             cls_prediction = cls_prediction
-            
+
         if self.task == 'regression':
             cls_prediction = cls_prediction
-        
+
         return cls_prediction
-    
+
     def on_after_batch_transfer(self, batch, dataloader_idx: int):
-        
+
         batch, _ = batch
-        
+
         data_key = 'X'
-       
+
        # Add auxiliar tokens
         if self.backbone.hparams.modality:
             x = batch[data_key]
             modality = batch['modality']
             x = torch.cat((modality.reshape(-1, 1), x), dim=1) # add modality token
             batch[data_key] = x
-            
+
         if self.backbone.hparams.assay:
             x = batch[data_key]
             assay = batch['assay']
             x = torch.cat((assay.reshape(-1, 1), x), dim=1) # add assay token
             batch[data_key] = x
-            
+
         if self.backbone.hparams.specie:
             x = batch[data_key]
             specie = batch['specie']
@@ -314,7 +311,7 @@ class FineTuningModel(pl.LightningModule):
             raise NotImplementedError("Label specified not existent in parquet or model.")
         else:
             batch['label'] = batch['specie'] # whatever to label, it's not used
-                
+
         if self.hparams.pool == 'cls': # Add cls token at the beginning of the set
             x = batch[data_key]
             cls = torch.ones((x.shape[0], 1), dtype=torch.int32, device=x.device)*CLS_TOKEN # CLS token is index 2
@@ -322,36 +319,20 @@ class FineTuningModel(pl.LightningModule):
             batch[data_key] = x
 
         batch['X'] = batch['X'][:, :self.backbone.hparams.context_length]
-        
+
         return batch
-    
+
     def configure_optimizers(self):
-        
+
         optimizer = optim.AdamW(self.parameters(), lr=self.hparams.lr, weight_decay=0.001)
         lr_scheduler = CosineWarmupScheduler(optimizer,
                                              warmup=self.hparams.warmup,
                                              max_epochs=self.hparams.max_epochs)
-        
+
         return [optimizer], [{'scheduler': lr_scheduler, 'interval': 'step'}]
-        
+
     def initialize_weights(self):
 
         for name, param in self.named_parameters():
             if 'weight' in name:
                 init.normal_(param, mean=0.0, std=0.02)
-    
-
-class DirichletMultinomialLoss(nn.Module):
-
-    def __init__(self):
-        super(DirichletMultinomialLoss, self).__init__()
-
-    def forward(self, alpha, count, target):
-    
-        dist = DirichletMultinomial(torch.exp(alpha), count)
-        log_probs = dist.log_prob(target).mean()
-        
-        return - log_probs
-
-
-
