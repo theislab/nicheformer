@@ -18,7 +18,7 @@ Schaar, A.C., Tejada-Lapuerta, A., et al. Nicheformer: a foundation model for si
 
 You need to have Python 3.9 or newer installed on your system. If you don't have
 Python installed, we recommend installing [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge).
-
+We strongly recommend creating a new environment before installing Nicheformer to avoid potential package conflicts:
 
 <!--
 1) Install the latest release of `nicheformer` from `PyPI <https://pypi.org/project/nicheformer/>`_:
@@ -27,6 +27,16 @@ Python installed, we recommend installing [Mambaforge](https://github.com/conda-
 pip install nicheformer
 ```
 -->
+Create a new conda environment:
+
+```bash
+mamba create -n nicheformer_env python=3.9
+```
+Activate the environment:
+
+```bash
+mamba activate nicheformer_env
+```
 
 Install the latest development version:
 
@@ -35,6 +45,7 @@ git clone https://github.com/theislab/nicheformer.git
 cd nicheformer
 pip install -e .
 ```
+
 ## Nicheformer data
 We provide examplary data loading scripts in the data subdirectory that can be used as templates for loading the spatial omics datasets and datasets retreived from GEO. 
 

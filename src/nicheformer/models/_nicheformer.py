@@ -113,7 +113,8 @@ class Nicheformer(pl.LightningModule):
                 embedding_dim=dim_model
             )
             self.dropout = nn.Dropout(p=dropout)
-            self.register_buffer('pos', torch.arange(0, context_length, dtype=torch.long))
+            #self.register_buffer('pos', torch.arange(0, context_length, dtype=torch.long))
+            self.pos = torch.arange(0, context_length, dtype=torch.long)
         else:
             self.positional_embedding = PositionalEncoding(
                 d_model=dim_model,
@@ -232,13 +233,13 @@ class Nicheformer(pl.LightningModule):
         x = batch[data_key]
 
         if self.hparams.modality and 'modality' in batch:
-            x = torch.cat((batch['modality'].reshape(-1, 1), x), dim=1)
+            x = torch.cat((batch['modality'].reshape(-1, 1).to(torch.int32), x), dim=1)
 
         if self.hparams.assay and 'assay' in batch:
-            x = torch.cat((batch['assay'].reshape(-1, 1), x), dim=1)
+            x = torch.cat((batch['assay'].reshape(-1, 1).to(torch.int32), x), dim=1)
 
         if self.hparams.specie and 'specie' in batch:
-            x = torch.cat((batch['specie'].reshape(-1, 1), x), dim=1)
+            x = torch.cat((batch['specie'].reshape(-1, 1).to(torch.int32), x), dim=1)
 
         if self.hparams.supervised_task:
             if 'cell_type' in batch:
@@ -270,13 +271,16 @@ class Nicheformer(pl.LightningModule):
 
     def get_embeddings(self, batch: dict[str, torch.Tensor], layer: int = -1, with_context: bool = False) -> torch.Tensor:
         """Get embeddings from the model."""
+        
+        batch = self.on_after_batch_transfer(batch, 0)
+        
         batch = complete_masking(batch, 0.0, self.hparams.n_tokens + 5)
         masked_indices = batch['masked_indices']
         attention_mask = batch['attention_mask']
 
         # Get token embeddings and positional encodings
         token_embedding = self.embeddings(masked_indices)
-
+        
         if self.hparams.learnable_pe:
             pos_embedding = self.positional_embedding(self.pos.to(token_embedding.device))
             embeddings = self.dropout(token_embedding + pos_embedding)
