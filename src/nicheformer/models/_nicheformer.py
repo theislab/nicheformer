@@ -142,7 +142,7 @@ class Nicheformer(pl.LightningModule):
 
         transformer_output = self.encoder(
             embeddings,
-            is_causal=self.hparams.autoregressive,
+            is_causal=False,
             src_key_padding_mask=attention_mask
         )
 

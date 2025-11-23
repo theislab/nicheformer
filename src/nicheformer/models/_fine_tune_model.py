@@ -120,7 +120,7 @@ class FineTuningModel(pl.LightningModule):
 
         for i in range(len(self.backbone.encoder.layers)):
             layer = self.backbone.encoder.layers[i]
-            embeddings = layer(embeddings, is_causal=self.backbone.autoregressive, src_key_padding_mask=attention_mask) # bs x seq_len x dim
+            embeddings = layer(embeddings, is_causal=False, src_key_padding_mask=attention_mask) # bs x seq_len x dim
             if i in self.hparams.extract_layers:
                 hidden_repr.append(embeddings)
 

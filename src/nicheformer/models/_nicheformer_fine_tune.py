@@ -134,7 +134,7 @@ class NicheformerFineTune(pl.LightningModule):
         for i, layer in enumerate(self.backbone.encoder.layers):
             embeddings = layer(
                 embeddings, 
-                is_causal=self.backbone.autoregressive,
+                is_causal=False,
                 src_key_padding_mask=attention_mask
             )
             if i in self.hparams.extract_layers:
@@ -342,7 +342,7 @@ class NicheformerFineTune(pl.LightningModule):
             embeddings = self.backbone.encoder.layers[i](
                 embeddings,
                 src_key_padding_mask=attention_mask,
-                is_causal=self.backbone.autoregressive
+                is_causal=False
             )
 
         return embeddings
