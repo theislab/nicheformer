@@ -10,8 +10,8 @@ else:
 
 geo_id = 'GSE172127'
 
-if not os.path.exists(f"{path}/raw"):
-    os.mkdir(f"{path}/raw")
+if not os.path.exists(f"{out_path}/raw"):
+    os.mkdir(f"{out_path}/raw")
 
 if not os.path.exists(f"{out_path}/raw/{geo_id}"):
     os.mkdir(f"{out_path}/raw/{geo_id}")
